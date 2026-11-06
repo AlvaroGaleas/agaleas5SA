@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="agaleas5SA.Views.vPersona"
+             Title="vPersona">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+
+            <Label Text="BASE DE DATOS SQLITE"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Entry x:Name="txtName"
+                   Placeholder="Ingrese un nombre" />
+
+            <Button x:Name="btnInsertar"
+                    Text="Insertar"
+                    Clicked="btnInsertar_Clicked" />
+
+            <Label x:Name="lblStatus"
+                   TextColor="Blue" />
+
+            <Button x:Name="btnObtener"
+                    Text="Listar Personas"
+                    Clicked="btnObtener_Clicked" />
+
+            <Entry x:Name="txtId"
+                   Placeholder="Ingrese ID para eliminar"
+                   Keyboard="Numeric" />
+
+            <Button x:Name="btnEliminar"
+                    Text="Eliminar Persona"
+                    BackgroundColor="#C62828"
+                    TextColor="White"
+                    Clicked="btnEliminar_Clicked" />
+
+            <CollectionView x:Name="ListaPersona">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="*, 2*" Padding="5">
+                            <Label Grid.Column="0" Text="{Binding Id}" FontAttributes="Bold" />
+                            <Label Grid.Column="1" Text="{Binding Name}" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
